@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIMEnergeia — Sovereign Clean Energy Intelligence</title>
+  <meta name="description" content="Physics-based simulation engines for grid control across 17 global markets covering 1,700+ GW. HJB-optimal dispatch with $5B+ TAM.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;⚡&lt;/text&gt;&lt;/svg&gt;">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-logo">⚡ PRIMEnergeia</div>
+    <ul class="navbar-links" id="navLinks">
+      <li><a onclick="showPage('landing')" class="active" data-page="landing">Home</a></li>
+      <li><a onclick="showPage('products')" data-page="products">Products</a></li>
+      <li><a onclick="showPage('outputs')" data-page="outputs">Grid Outputs</a></li>
+      <li><a onclick="showPage('pricing')" data-page="pricing">Pricing</a></li>
+      <li><a onclick="showPage('demo')" data-page="demo">Live Demo</a></li>
+      <li><a onclick="showPage('results')" data-page="results">Results</a></li>
+      <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+      <li><a href="https://cordiego.github.io/prime-site/sovereign" target="_blank" class="navbar-cta">Dashboard ↗</a></li>
+    </ul>
+    <button class="navbar-mobile-toggle" onclick="toggleMobile()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     PAGE: LANDING
+     ============================================================ -->
+<div class="page active" id="page-landing">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Sovereign Clean Energy Intelligence</div>
+      <h1>The Brain the Grid Has Been Missing</h1>
+      <p>HJB-optimal dispatch reduces grid operating costs by 8-15%. Mathematically provable. Not heuristics. Not black-box ML. PRIMEngine solves for the optimal dispatch — every minute, every node, every asset — fed by <strong>live settlement prices</strong> from ERCOT, SEN, and MIBEL markets.</p>
+      <div class="hero-cta-group">
+        <a class="btn btn-primary" onclick="showPage('demo')">Try Live Demo →</a>
+        <a class="btn btn-secondary" onclick="showPage('products')">View Products</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">$5B+</div>
+          <div class="hero-stat-label">Grid Optimization TAM</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">17</div>
+          <div class="hero-stat-label">Global Markets</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">1,700+</div>
+          <div class="hero-stat-label">GW Covered</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">8-15%</div>
+          <div class="hero-stat-label">Dispatch Cost Savings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Technology Stack</div>
+        <h2>Built on Real Physics</h2>
+        <p>Every engine is grounded in peer-reviewed thermodynamics, electrochemistry, and optimal control theory.</p>
+      </div>
+      <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div style="text-align: center; padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🧮</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-cyan); font-weight: 600;">HJB Control</div>
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Hamilton-Jacobi-Bellman</div>
+        </div>
+        <div style="text-align: center; padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">⚡</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-cyan); font-weight: 600;">Nernst + Brayton</div>
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Fuel Cell &amp; Turbine Physics</div>
+        </div>
+        <div style="text-align: center; padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🔬</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-cyan); font-weight: 600;">TMM + Mie</div>
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Optical Multilayer Modeling</div>
+        </div>
+        <div style="text-align: center; padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🤖</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-cyan); font-weight: 600;">Bayesian GP</div>
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Self-Driving Lab Optimization</div>
+        </div>
+        <div style="text-align: center; padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">♻️</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-cyan); font-weight: 600;">Circular Economy</div>
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Module Recycling &amp; Pb Capture</div>
+        </div>
+      </div>
+
+      <!-- Live Market Telemetry -->
+      <div style="margin-top: 48px; padding: 32px; background: linear-gradient(135deg, rgba(0,209,255,0.05), rgba(0,255,136,0.05)); border: 1px solid rgba(0,209,255,0.15); border-radius: 16px;">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-cyan); letter-spacing: 2px; font-weight: 600; margin-bottom: 4px;">GLOBAL COVERAGE</div>
+          <div style="font-size: 20px; font-weight: 700;">17 Markets · 1,700+ GW</div>
+          <div style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Real settlement prices via gridstatus, CENACE, OMIE, and ENTSO-E</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+          <div style="background: rgba(0,0,0,0.2); border: 1px solid rgba(0,209,255,0.2); border-radius: 12px; padding: 16px; text-align: center;">
+            <div style="font-size: 20px; margin-bottom: 6px;">🇺🇸🇨🇦</div>
+            <div style="font-family: var(--font-mono); font-size: 13px; color: #00d1ff; font-weight: 600;">North America</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">ERCOT · PJM · CAISO · MISO</div>
+            <div style="font-size: 11px; color: var(--text-muted);">SPP · NYISO · ISONE · IESO · AESO</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: #00d1ff; margin-top: 6px;">~720 GW</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; padding: 16px; text-align: center;">
+            <div style="font-size: 20px; margin-bottom: 6px;">🇲🇽</div>
+            <div style="font-family: var(--font-mono); font-size: 13px; color: #00ff88; font-weight: 600;">México</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">SEN / CENACE</div>
+            <div style="font-size: 11px; color: var(--text-muted);">30 nodos · 9 regions</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: #00ff88; margin-top: 6px;">~75 GW</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border: 1px solid rgba(241,196,15,0.2); border-radius: 12px; padding: 16px; text-align: center;">
+            <div style="font-size: 20px; margin-bottom: 6px;">🇪🇺</div>
+            <div style="font-family: var(--font-mono); font-size: 13px; color: #F1C40F; font-weight: 600;">Europe</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">MIBEL · EPEX · Nord Pool</div>
+            <div style="font-size: 11px; color: var(--text-muted);">ELEXON · ENTSO-E connected</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: #F1C40F; margin-top: 6px;">~640 GW</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border: 1px solid rgba(138,43,226,0.2); border-radius: 12px; padding: 16px; text-align: center;">
+            <div style="font-size: 20px; margin-bottom: 6px;">🇦🇺🇯🇵</div>
+            <div style="font-family: var(--font-mono); font-size: 13px; color: #AB47BC; font-weight: 600;">Asia-Pacific</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">NEM (Australia)</div>
+            <div style="font-size: 11px; color: var(--text-muted);">JEPX (Japan)</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: #AB47BC; margin-top: 6px;">~335 GW</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: PRODUCTS
+     ============================================================ -->
+<div class="page" id="page-products">
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Product Suite</div>
+        <h2>3 Core Divisions</h2>
+        <p>Enterprise-grade intelligence engines. Each division operates independently with its own revenue model.</p>
+      </div>
+
+      <!-- DIVISION 1: Grid Control & Energy -->
+      <div style="margin-bottom: 48px;">
+        <div style="padding: 16px 24px; background: linear-gradient(135deg, rgba(0,209,255,0.08), rgba(0,209,255,0.02)); border: 1px solid rgba(0,209,255,0.2); border-radius: 12px; margin-bottom: 20px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: #00d1ff; letter-spacing: 2px; font-weight: 600; margin-bottom: 2px;">DIVISION 1</div>
+          <div style="font-size: 18px; font-weight: 700;">⚡ Grid Control &amp; Energy</div>
+          <div style="color: var(--text-muted); font-size: 13px; margin-top: 2px;">HJB-optimal dispatch across ERCOT · SEN · MIBEL — fed by 47 real data nodes</div>
+        </div>
+        <div class="products-grid">
+          <div class="product-card" style="--card-accent: #00d1ff;">
+            <div class="product-icon">⚡</div>
+            <div class="product-title" style="color: #00d1ff;">Grid Control</div>
+            <div class="product-desc">HJB frequency regulation across SEN 🇲🇽, ERCOT 🇺🇸, and MIBEL 🇪🇸🇵🇹. Live settlement prices from 47 nodes with 15-min resolution. DA + RT co-optimization.</div>
+            <div class="product-tags">
+              <span class="tag">HJB</span>
+              <span class="tag">3 Markets</span>
+              <span class="tag">Real-Time</span>
+            </div>
+          </div>
+          <div class="product-card" style="--card-accent: #00ff88;">
+            <div class="product-icon">🔋</div>
+            <div class="product-title" style="color: #00ff88;">Battery BESS</div>
+            <div class="product-desc">400 MWh grid-scale storage. LFP/NMC electrochemistry, calendar + cycle aging, arbitrage dispatch, and multi-stream revenue optimization.</div>
+            <div class="product-tags">
+              <span class="tag">400 MWh</span>
+              <span class="tag">LFP</span>
+              <span class="tag">Degradation</span>
+            </div>
+          </div>
+          <div class="product-card" style="--card-accent: #00ccff;">
+            <div class="product-icon">🌬️</div>
+            <div class="product-title" style="color: #00ccff;">PRIM Wind</div>
+            <div class="product-desc">15 MW offshore wind + green H₂. IEC power curves, Jensen wake model, Weibull AEP, and PEM electrolyzer co-optimization.</div>
+            <div class="product-tags">
+              <span class="tag">15 MW</span>
+              <span class="tag">Green H₂</span>
+              <span class="tag">IEC 61400</span>
+            </div>
+          </div>
+        </div>
+        <div class="products-grid" style="margin-top: 16px;">
+          <div class="product-card" style="--card-accent: #AB47BC;">
+            <div class="product-icon">🧠</div>
+            <div class="product-title" style="color: #AB47BC;">HJB Control</div>
+            <div class="product-desc">Hamilton-Jacobi-Bellman dispatch optimizer. Min-fuel engine scheduling with physics-constrained state estimation.</div>
+            <div class="product-tags">
+              <span class="tag">HJB</span>
+              <span class="tag">Dispatch</span>
+            </div>
+          </div>
+          <div class="product-card" style="--card-accent: #78909C;">
+            <div class="product-icon">🏭</div>
+            <div class="product-title" style="color: #78909C;">PRIMStack</div>
+            <div class="product-desc">Unified plant integrator. Multi-timescale HJB dispatch orchestrating Solar+Wind+BESS+H₂ as one system.</div>
+            <div class="product-tags">
+              <span class="tag">Stack</span>
+              <span class="tag">Multi-HJB</span>
+            </div>
+          </div>
+          <div class="product-card" style="--card-accent: #EF5350;">
+            <div class="product-icon">🚀</div>
+            <div class="product-title" style="color: #EF5350;">PRIMEngines</div>
+            <div class="product-desc">Zero-carbon propulsion. NH₃ ICE, PEM fuel cell, H₂ turbine. Brayton-cycle modeling + grid peaking.</div>
+            <div class="product-tags">
+              <span class="tag">NH₃/H₂</span>
+              <span class="tag">Zero CO₂</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVISION 2: Eureka Trading -->
+      <div style="margin-bottom: 48px;">
+        <div style="padding: 16px 24px; background: linear-gradient(135deg, rgba(241,196,15,0.08), rgba(241,196,15,0.02)); border: 1px solid rgba(241,196,15,0.2); border-radius: 12px; margin-bottom: 20px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: #F1C40F; letter-spacing: 2px; font-weight: 600; margin-bottom: 2px;">DIVISION 2</div>
+          <div style="font-size: 18px; font-weight: 700;">🏛️ Eureka Trading</div>
+          <div style="color: var(--text-muted); font-size: 13px; margin-top: 2px;">VIX-regime volatility targeting · Automated daily signals · 2/20 model</div>
+        </div>
+        <div class="products-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="product-card" style="--card-accent: #F1C40F;">
+            <div class="product-icon">📈</div>
+            <div class="product-title" style="color: #F1C40F;">Eureka Sovereign</div>
+            <div class="product-desc">VIX-regime volatility targeting with 5-asset allocation (equities, bonds, commodities, crypto, alternatives). GBM simulation + Markowitz + Kelly criterion. Automated daily signals via Telegram.</div>
+            <div class="product-tags">
+              <span class="tag">VIX Regime</span>
+              <span class="tag">5 Assets</span>
+              <span class="tag">Kelly</span>
+              <span class="tag">Telegram</span>
+            </div>
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid rgba(241,196,15,0.15); border-radius: 12px; padding: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <div style="font-size: 48px; margin-bottom: 12px;">📈</div>
+            <div style="font-family: var(--font-mono); font-size: 18px; color: #F1C40F; font-weight: 700;">2 / 20</div>
+            <div style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">2% management + 20% performance</div>
+            <div style="margin-top: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 1px;">BACKTESTED SINCE 2010</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVISION 3: Materials, Engines & Research -->
+      <div>
+        <div style="padding: 16px 24px; background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,255,136,0.02)); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; margin-bottom: 20px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: #00ff88; letter-spacing: 2px; font-weight: 600; margin-bottom: 2px;">DIVISION 3</div>
+          <div style="font-size: 18px; font-weight: 700;">🔬 Materials, Engines &amp; Research</div>
+          <div style="color: var(--text-muted); font-size: 13px; margin-top: 2px;">Granas perovskite suite · Self-Driving Lab · Circular economy · PRIME Kernel</div>
+        </div>
+        <div class="products-grid">
+          <div class="product-card" style="--card-accent: #8a2be2;">
+            <div class="product-icon">🔬</div>
+            <div class="product-title" style="color: #8a2be2;">Granas Optics</div>
+            <div class="product-desc">TMM/Mie optical multilayer simulation for perovskite-silicon tandems. AM1.5G spectral optimization with HJB-driven layer tuning.</div>
+            <div class="product-tags">
+              <span class="tag">TMM</span>
+              <span class="tag">Mie</span>
+              <span class="tag">HJB</span>
+            </div>
+          </div>
+          <div class="product-card" style="--card-accent: #00ffcc;">
+            <div class="product-icon">🤖</div>
+            <div class="product-title" style="color: #00ffcc;">Self-Driving Lab</div>
+            <div class="product-desc">Bayesian optimization for perovskite fabrication. 6D GP + EI acquisition for autonomous experiment scheduling.</div>
+            <div class="product-tags">
+              <span class="tag">Bayesian</span>
+              <span class="tag">6D GP</span>
+              <span class="tag">SDL</span>
+            </div>
+          </div>
+          <div class="product-card" style="--card-accent: #2ecc71;">
+            <div class="product-icon">📐</div>
+            <div class="product-title" style="color: #2ecc71;">10 Granas Engines</div>
+            <div class="product-desc">Blueprint + CFRP + ETFE + TOPCon + Albedo + GHB + Scale + Metrics + PRIMEcycle + SIBO. Full perovskite-silicon tandem stack.</div>
+            <div class="product-tags">
+              <span class="tag">10 Engines</span>
+              <span class="tag">Tandem</span>
+              <span class="tag">GW Scale</span>
+            </div>
+          </div>
+        </div>
+        <div class="products-grid" style="margin-top: 16px;">
+          <div class="product-card" style="--card-accent: #00ffcc;">
+            <div class="product-icon">🧠</div>
+            <div class="product-title" style="color: #00ffcc;">PRIME Kernel</div>
+            <div class="product-desc">Shared IP core. HJB solver, physics constants, and telemetry primitives used across all divisions.</div>
+            <div class="product-tags">
+              <span class="tag">HJB</span>
+              <span class="tag">Shared Core</span>
+            </div>
+          </div>
+          <div class="product-card" style="--card-accent: #66BB6A;">
+            <div class="product-icon">♻️</div>
+            <div class="product-title" style="color: #66BB6A;">PRIMEcycle</div>
+            <div class="product-desc">Circular economy. 97.3% material recovery, Pb capture, BOM disassembly, and zero-waste perovskite EOL.</div>
+            <div class="product-tags">
+              <span class="tag">Circular</span>
+              <span class="tag">97.3%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: PRICING
+     ============================================================ -->
+<div class="page" id="page-pricing">
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Pricing</div>
+        <h2>You Only Pay When We Make You Money</h2>
+        <p>25% of incremental revenue generated. Backtest-validated on real settlement prices: 55.7% dispatch uplift vs naive TOU. Transparent savings methodology with independent verification. If we don't improve your returns, you pay nothing.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Pilot -->
+        <div class="pricing-card">
+          <div class="pricing-name">Pilot</div>
+          <div class="pricing-price">$0<span> / 90 days</span></div>
+          <div class="pricing-desc">Prove the value risk-free</div>
+          <ul class="pricing-features">
+            <li>Starting fee: $0</li>
+            <li>90-day free trial</li>
+            <li>Single market (ERCOT, SEN, or MIBEL)</li>
+            <li>Full optimization engine access</li>
+            <li>Savings report at day 90</li>
+            <li>No commitment, no credit card</li>
+          </ul>
+          <a class="btn btn-secondary pricing-btn" onclick="showPage('contact')">Start Pilot →</a>
+        </div>
+
+        <!-- Growth -->
+        <div class="pricing-card">
+          <div class="pricing-name">Growth</div>
+          <div class="pricing-price">25%<span> of uplift</span></div>
+          <div class="pricing-desc">For operators with &lt;200 MW storage</div>
+          <ul class="pricing-features">
+            <li>Starting fee: $500K</li>
+            <li>25% of incremental revenue generated</li>
+            <li>Minimum $50K/yr commitment</li>
+            <li>All 3 markets (ERCOT, SEN, MIBEL)</li>
+            <li>Real-time dispatch dashboard</li>
+            <li>Battery degradation tracking</li>
+            <li>Monthly performance reports</li>
+          </ul>
+          <a class="btn btn-secondary pricing-btn" onclick="showPage('contact')">Get Started →</a>
+        </div>
+
+        <!-- Scale -->
+        <div class="pricing-card featured">
+          <div class="pricing-name">Scale</div>
+          <div class="pricing-price">25%<span> of uplift</span></div>
+          <div class="pricing-desc">For fleets with 200 MW – 1 GW storage</div>
+          <ul class="pricing-features">
+            <li>Starting fee: $1.5M</li>
+            <li>25% of incremental revenue generated</li>
+            <li>Minimum $500K/yr commitment</li>
+            <li>REST API + WebSocket streaming</li>
+            <li>SCADA/EMS integration support</li>
+            <li>DA + RT co-optimization</li>
+            <li>Ancillary services bidding</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a class="btn btn-primary pricing-btn" onclick="showPage('contact')">Contact Sales →</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">25%<span> of uplift</span></div>
+          <div class="pricing-desc">For fleets exceeding 1 GW of storage</div>
+          <ul class="pricing-features">
+            <li>Starting fee: $2.5M</li>
+            <li>25% of incremental revenue generated</li>
+            <li>Minimum $2M/yr commitment</li>
+            <li>Fleet portfolio optimization</li>
+            <li>On-premise or dedicated cloud</li>
+            <li>Custom engine development</li>
+            <li>White-label option</li>
+            <li>24/7 support with SLA guarantee</li>
+          </ul>
+          <a class="btn btn-secondary pricing-btn" onclick="showPage('contact')">Talk to Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: DEMO
+     ============================================================ -->
+<div class="page" id="page-demo">
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">ROI Calculator</div>
+        <h2>Grid Dispatch ROI Calculator</h2>
+        <p>Enter your fleet parameters and see how much PRIMEngine can save you annually. Based on real optimization results across ERCOT, SEN, and MIBEL markets.</p>
+      </div>
+
+      <div class="demo-container">
+        <div class="demo-controls">
+          <h3>⚡ Fleet Parameters</h3>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Fleet Capacity</span>
+              <span class="control-value" id="val-fleet">100 MW</span>
+            </div>
+            <input type="range" id="slider-fleet" min="10" max="1000" value="100" step="10" oninput="updateROI()">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Current Dispatch Cost</span>
+              <span class="control-value" id="val-cost">$45 /MWh</span>
+            </div>
+            <input type="range" id="slider-cost" min="20" max="120" value="45" step="1" oninput="updateROI()">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Battery Storage</span>
+              <span class="control-value" id="val-battery">400 MWh</span>
+            </div>
+            <input type="range" id="slider-battery" min="0" max="2000" value="400" step="50" oninput="updateROI()">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Capacity Factor</span>
+              <span class="control-value" id="val-cf">65%</span>
+            </div>
+            <input type="range" id="slider-cf" min="20" max="95" value="65" step="5" oninput="updateROI()">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Market</span>
+            </div>
+            <select id="select-market" onchange="updateROI()" style="width:100%;padding:10px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);border-radius:8px;font-family:var(--font-mono);font-size:13px;">
+              <optgroup label="🇺🇸 ERCOT — Texas (85 GW)">
+                <option value="ercot">Houston Hub</option>
+                <option value="ercot_north">North Hub (DFW)</option>
+                <option value="ercot_south">South Hub (SA/Austin)</option>
+                <option value="ercot_west">West Hub (Permian)</option>
+              </optgroup>
+              <optgroup label="🇲🇽 SEN — México (75 GW)">
+                <option value="sen_vza">VZA-400 (validated $231K)</option>
+                <option value="sen_mty">Monterrey (Noreste)</option>
+                <option value="sen_gdl">Guadalajara (Occidental)</option>
+                <option value="sen_her">Hermosillo (Noroeste)</option>
+                <option value="sen_qro">Querétaro (Central)</option>
+              </optgroup>
+              <optgroup label="🇪🇸🇵🇹 MIBEL — Iberia (110 GW)">
+                <option value="mibel_es">España</option>
+                <option value="mibel_pt">Portugal</option>
+              </optgroup>
+              <optgroup label="🌏 Other ISOs Supported">
+                <option value="pjm">PJM — US East (180 GW)</option>
+                <option value="caiso">CAISO — California (80 GW)</option>
+                <option value="miso">MISO — Midwest (190 GW)</option>
+                <option value="spp">SPP — Central (65 GW)</option>
+                <option value="epex">EPEX — Germany (220 GW)</option>
+                <option value="nordpool">Nord Pool — Nordics (100 GW)</option>
+                <option value="nem">NEM — Australia (55 GW)</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <button class="btn btn-primary demo-run-btn" onclick="updateROI()">
+            ⚡ Calculate Savings
+          </button>
+        </div>
+
+        <div class="demo-results">
+          <h3>📊 Projected Annual Savings</h3>
+          <div class="results-grid">
+            <div class="result-metric">
+              <div class="result-metric-label">Annual Dispatch Cost</div>
+              <div class="result-metric-value" id="result-annual-cost">$25.6M<span class="result-metric-unit"> /yr</span></div>
+            </div>
+            <div class="result-metric">
+              <div class="result-metric-label">HJB Savings (8-15%)</div>
+              <div class="result-metric-value" id="result-savings">$2.8M<span class="result-metric-unit"> /yr</span></div>
+            </div>
+            <div class="result-metric">
+              <div class="result-metric-label">PRIMEngine License</div>
+              <div class="result-metric-value" id="result-license">$200K<span class="result-metric-unit"> /yr</span></div>
+            </div>
+            <div class="result-metric">
+              <div class="result-metric-label">Net ROI</div>
+              <div class="result-metric-value" id="result-roi">14x<span class="result-metric-unit"> return</span></div>
+            </div>
+          </div>
+          <div class="demo-chart">
+            <canvas id="demoCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: CONTACT
+     ============================================================ -->
+<div class="page" id="page-contact">
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Get In Touch</div>
+        <h2>Let's Build the Future of Energy</h2>
+        <p>Whether you need a simulation API, a custom engine, or an enterprise deployment — we're ready to help.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>PRIMEnergeia S.A.S.</h3>
+          <p>Sovereign clean energy intelligence. Physics-based simulation engines for grid operators, energy developers, and materials researchers worldwide.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📧</div>
+            <a href="mailto:cordobaurrutia95@gmail.com">cordobaurrutia95@gmail.com</a>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🌐</div>
+            <a href="https://github.com/cordiego" target="_blank">github.com/cordiego</a>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <span>Global — 🇲🇽 🇺🇸 🇪🇸 🇵🇹</span>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzgbkwl" method="POST" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Your name" required="">
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" placeholder="you@company.com" required="">
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="How can we help?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-logo">⚡ PRIMEnergeia</div>
+  <div class="footer-links">
+    <a onclick="showPage('products')">Products</a>
+    <a onclick="showPage('pricing')">Pricing</a>
+    <a onclick="showPage('demo')">Calculator</a>
+    <a onclick="showPage('contact')">Contact</a>
+    <a href="https://cordiego.github.io/prime-site" target="_blank">Hub</a>
+  </div>
+  <div class="footer-copy">© 2026 PRIMEnergeia S.A.S. — Soberanía Energética Global ⚡🇲🇽🇺🇸🇪🇺🇦🇺🇯🇵</div>
+</footer>
+
+<script src="app.js"></script>
+</body></html>
