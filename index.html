@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIMEnergeia — Sovereign Clean Energy Intelligence</title>
+  <meta name="description" content="PRIMEnergeia S.A.S. — Physics-based simulation engines for grid control across 17 global markets. HJB-optimal dispatch recovering $231K+ per node.">
+  <meta property="og:title" content="PRIMEnergeia — Sovereign Clean Energy Intelligence">
+  <meta property="og:description" content="Real-time HJB optimal control across 17 global ISOs covering 1,700+ GW. Zero hardware changes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cordiego.github.io/prime-site">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;⚡&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --border-subtle: rgba(0, 209, 255, 0.12);
+      --border-glow: rgba(0, 209, 255, 0.3);
+      --cyan: #00d1ff;
+      --cyan-dim: rgba(0, 209, 255, 0.15);
+      --gold: #fbc02d;
+      --green: #22c55e;
+      --purple: #8b5cf6;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(0, 209, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 209, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hub {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .hub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cyan-dim);
+      border: 1px solid rgba(0, 209, 255, 0.25);
+      border-radius: 100px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .hub-badge .pulse {
+      width: 8px; height: 8px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 209, 255, 0.4); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 8px rgba(0, 209, 255, 0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+      animation: fadeIn 0.8s ease-out 0.1s both;
+    }
+
+    h1 .gradient-text {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hub-sub {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+
+    .hub-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      animation: fadeIn 0.8s ease-out 0.3s both;
+    }
+
+    .hub-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.35s ease;
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hub-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: opacity 0.3s;
+    }
+
+    .hub-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 209, 255, 0.08);
+    }
+
+    .hub-card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hub-card h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hub-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .hub-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cyan);
+      transition: gap 0.2s;
+    }
+
+    .hub-card:hover .hub-card-cta {
+      gap: 0.75rem;
+    }
+
+    .hub-card-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 209, 255, 0.15);
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 3rem;
+      animation: fadeIn 0.8s ease-out 0.4s both;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .stat-value.gold { color: var(--gold); }
+    .stat-value.green { color: var(--green); }
+    .stat-value.purple { color: var(--purple); }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 4rem;
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      animation: fadeIn 0.8s ease-out 0.5s both;
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .hub-cards { grid-template-columns: 1fr; }
+      .stats-row { flex-wrap: wrap; gap: 1.5rem; }
+    }
+  </style></head>
+<body>
+
+  <div class="hub">
+    <div class="hub-badge">
+      <span class="pulse"></span>
+      PRIMEnergeia S.A.S.
+    </div>
+
+    <h1>
+      <span class="gradient-text">Sovereign</span> Clean<br>Energy Intelligence
+    </h1>
+
+    <p class="hub-sub">
+      Physics-based simulation engines for grid control, clean energy dispatch, and advanced materials —
+      across 17 global markets covering 1,700+ GW.
+    </p>
+
+    <div class="hub-cards">
+      <a href="platform/" class="hub-card" style="--accent: var(--cyan);">
+        <div class="hub-card-icon">🏢</div>
+        <h2>PRIME Platform</h2>
+        <div class="hub-card-tags">
+          <span class="tag">3 Divisions</span>
+          <span class="tag">17 Markets</span>
+          <span class="tag">ROI Calculator</span>
+        </div>
+        <p>
+          Full product suite, pricing, live demo, grid outputs, and simulation results.
+          Enterprise-grade intelligence engines across Grid Control, Eureka Trading, and Materials Research.
+        </p>
+        <div class="hub-card-cta">Enter Platform →</div>
+      </a>
+
+      <a href="sovereign/" class="hub-card" style="--accent: var(--gold);">
+        <div class="hub-card-icon">⚡</div>
+        <h2>PRIMEnergeia Sovereign</h2>
+        <div class="hub-card-tags">
+          <span class="tag" style="background: rgba(251,192,45,0.15); color: var(--gold); border-color: rgba(251,192,45,0.15);">$231K Rescued</span>
+          <span class="tag" style="background: rgba(251,192,45,0.15); color: var(--gold); border-color: rgba(251,192,45,0.15);">HJB Control</span>
+        </div>
+        <p>
+          Real-time HJB frequency control landing page. Certified results at Node VZA-400,
+          global market coverage, executive brief, and due diligence materials.
+        </p>
+        <div class="hub-card-cta">View Sovereign →</div>
+      </a>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-value">$231K</div>
+        <div class="stat-label">Capital Rescued</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value gold">1,770 GW</div>
+        <div class="stat-label">Grid Coverage</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value green">17 ISOs</div>
+        <div class="stat-label">Global Markets</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value purple">$5B+</div>
+        <div class="stat-label">Total TAM</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 PRIMEnergeia S.A.S. — Soberanía Energética Global ⚡🇲🇽🇺🇸🇪🇺🇦🇺🇯🇵🇨🇦🇬🇧
+    <br>
+    <a href="https://github.com/cordiego" target="_blank">github.com/cordiego</a> ·
+    <a href="https://primenergeia-sovereign.streamlit.app" target="_blank">Live Dashboard</a>
+  </footer>
+</body></html>
